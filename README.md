@@ -14,3 +14,36 @@ thanks, but no thanks. I don't want to install any more software, no matter how 
 I am really grateful for this great software that the ownTracks team has provided and only want to use the existing way via HTTP.
 
 The piece of code presented here is not a complete application for a specific purpose, but it shows how the data can be received by the app and how a meaningful response can look like so that the map and friends list is filled correctly in the app.  
+
+## Configure ownTracks
+
+* set the mode to: "HTTP"
+
+* set the endpoint to your record.php-address: https://www.example.com/owntracks/record.php
+
+* create a data-directory next to record.php
+
+* set your device-ID e.g. JohnPixel
+ 
+* set your tracker-ID pxj
+
+## Handle friends names and profile-photos
+
+in the record.php-file there is a part for matching each tracker-ID with a readable name and a profile-photo.
+
+```php
+// Define an associative array mapping IDs to base64-encoded PNG strings for faces
+$faces = [
+    "nx4" => "base64PNGCode",
+];
+
+// Define an associative array mapping IDs to readable names
+$names = [
+    "nx4" => "readable Name",
+];
+```
+
+Of course you can add a complex administration and use a database. But if you want to network just the 4 devices in your family, then this might be a practical solution :-)
+
+In any case, it is a good basis from which you can develop further.
+
